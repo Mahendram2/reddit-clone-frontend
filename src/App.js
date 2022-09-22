@@ -1,10 +1,10 @@
 import './App.css';
-import Feed from './pages/Feed';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className='App'>
-      <Feed />
+      <Main />
     </div>
   );
 }
