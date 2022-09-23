@@ -10,7 +10,11 @@ function Feed({ feed }) {
       <>
         <h1>I am the Feed Component</h1>
         {feed.map((post) => (
-          <Post title={post.title} createdBy={post.createdBy} />
+          <Post
+            title={post.title}
+            createdBy={post.createdBy}
+            key={post.title}
+          />
         ))}
       </>
     );
