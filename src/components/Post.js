@@ -1,10 +1,11 @@
 import Content from './Content';
 import Comment from './Comment';
 
-function Post(props) {
+function Post({ title, createdBy }) {
   return (
     <>
-      <h1>I am the Post Component</h1>
+      <h2>{title}</h2>
+      <h3>Created By: {createdBy}</h3>
       <Content />
       <Comment />
     </>
