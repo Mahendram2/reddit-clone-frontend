@@ -1,8 +1,6 @@
 import Post from '../components/Post';
 
 function Feed({ feed }) {
-  console.log('IN FEED: ', feed);
-
   const loading = () => {
     return <h1>Loading...</h1>;
   };
