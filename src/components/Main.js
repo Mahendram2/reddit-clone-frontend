@@ -19,16 +19,28 @@ function Main(props) {
     }
   };
 
+  const createPost = async (post) => {
+    try {
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-type': 'Application/json' },
+        body: JSON.stringify(post),
+      });
+      getData();
+    } catch (error) {
+      console.log(error);
+      // TODO craft error message for user
+    }
+  };
+
   useEffect(() => {
     getData();
   }, []);
 
-  console.log('In Main: ', feed);
-
   return (
     <Routes>
       <Route path='/' element={<Feed feed={feed} />} />
-      <Route path='/newpost' element={<NewPost />} />
+      <Route path='/newpost' element={<NewPost createPost={createPost} />} />
     </Routes>
   );
 }
