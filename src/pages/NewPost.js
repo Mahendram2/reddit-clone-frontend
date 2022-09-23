@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function NewPost({ createPost }) {
   const [newPost, setNewPost] = useState({
     title: '',
     createdBy: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setNewPost({
@@ -19,6 +22,7 @@ function NewPost({ createPost }) {
       title: '',
       createdBy: '',
     });
+    navigate('/');
   };
 
   return (
