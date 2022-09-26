@@ -8,15 +8,17 @@ function Feed({ feed }) {
 
   const loaded = () => {
     return (
-      <>
+      <div className='feed'>
         <h1>I am the Feed Component</h1>
         {feed.map((post) => (
-          <h2 key={post._id}>
-            <Link to={`/post/${post._id}`}>{post.title}</Link>
+          <div className='post' key={post._id}>
+            <Link className='post-title' to={`/post/${post._id}`}>
+              {post.title}
+            </Link>
             <p>Created By: {post.createdBy}</p>
-          </h2>
+          </div>
         ))}
-      </>
+      </div>
     );
   };
 
