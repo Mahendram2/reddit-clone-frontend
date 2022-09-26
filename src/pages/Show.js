@@ -12,7 +12,7 @@ function Show({ feed, deletePost }) {
   };
 
   return (
-    <div className='post-container'>
+    <div className='show-post'>
       <p>Made by: {post.createdBy}</p>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
