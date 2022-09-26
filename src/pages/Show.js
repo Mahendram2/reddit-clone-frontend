@@ -13,8 +13,9 @@ function Show({ feed, deletePost }) {
 
   return (
     <div className='post-container'>
-      <h1>{post.title}</h1>
       <p>Made by: {post.createdBy}</p>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
       <button onClick={handleDelete}>Delete Post</button>
     </div>
   );
