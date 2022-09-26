@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
+import Show from '../pages/Show';
 
 function Main(props) {
   const [feed, setFeed] = useState(null);
@@ -33,6 +34,18 @@ function Main(props) {
     }
   };
 
+  const deletePost = async (id) => {
+    try {
+      await fetch(API_URL + id, {
+        method: 'DELETE',
+      });
+      getData();
+    } catch (error) {
+      console.log(error);
+      // TODO craft error message for user
+    }
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -41,6 +54,10 @@ function Main(props) {
     <Routes>
       <Route path='/' element={<Feed feed={feed} />} />
       <Route path='/newpost' element={<NewPost createPost={createPost} />} />
+      <Route
+        path='/post/:id'
+        element={<Show feed={feed} deletePost={deletePost} />}
+      />
     </Routes>
   );
 }
