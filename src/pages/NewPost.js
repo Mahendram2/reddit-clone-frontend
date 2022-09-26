@@ -5,6 +5,7 @@ function NewPost({ createPost }) {
   const [newPost, setNewPost] = useState({
     title: '',
     createdBy: '',
+    content: '',
   });
 
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ function NewPost({ createPost }) {
     setNewPost({
       title: '',
       createdBy: '',
+      content: '',
     });
     navigate('/');
   };
@@ -47,6 +49,16 @@ function NewPost({ createPost }) {
             value={newPost.createdBy}
             onChange={handleChange}
             placeholder='Author'
+          />
+        </label>
+        <label>
+          Content:
+          <textarea
+            type='text'
+            name='content'
+            value={newPost.content}
+            onChange={handleChange}
+            placeholder='Post Text Content'
           />
         </label>
         <input type='submit' value='Create Post' />

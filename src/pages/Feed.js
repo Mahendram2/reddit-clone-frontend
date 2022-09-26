@@ -1,4 +1,5 @@
 import Post from '../components/Post';
+import { Link } from 'react-router-dom';
 
 function Feed({ feed }) {
   const loading = () => {
@@ -7,16 +8,17 @@ function Feed({ feed }) {
 
   const loaded = () => {
     return (
-      <>
+      <div className='feed'>
         <h1>I am the Feed Component</h1>
         {feed.map((post) => (
-          <Post
-            title={post.title}
-            createdBy={post.createdBy}
-            key={post.title}
-          />
+          <div className='post' key={post._id}>
+            <Link className='post-title' to={`/post/${post._id}`}>
+              {post.title}
+            </Link>
+            <p>Created By: {post.createdBy}</p>
+          </div>
         ))}
-      </>
+      </div>
     );
   };
 
