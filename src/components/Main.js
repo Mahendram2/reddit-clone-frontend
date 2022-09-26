@@ -51,14 +51,16 @@ function Main(props) {
   }, []);
 
   return (
-    <Routes>
-      <Route path='/' element={<Feed feed={feed} />} />
-      <Route path='/newpost' element={<NewPost createPost={createPost} />} />
-      <Route
-        path='/post/:id'
-        element={<Show feed={feed} deletePost={deletePost} />}
-      />
-    </Routes>
+    <div className='feed-container'>
+      <Routes>
+        <Route path='/' element={<Feed feed={feed} />} />
+        <Route path='/newpost' element={<NewPost createPost={createPost} />} />
+        <Route
+          path='/post/:id'
+          element={<Show feed={feed} deletePost={deletePost} />}
+        />
+      </Routes>
+    </div>
   );
 }
 
