@@ -36,7 +36,7 @@ function Main(props) {
 
   const deletePost = async (id) => {
     try {
-      await fetch(API_URL + id, {
+      await fetch(API_URL + 'delete/' + id, {
         method: 'DELETE',
       });
       getData();
