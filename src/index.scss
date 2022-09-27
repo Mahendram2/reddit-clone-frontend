@@ -1,5 +1,16 @@
+$main-background: rgb(3, 3, 3);
+$container-background: rgb(26, 26, 26);
+$font-color: rgb(216, 218, 220);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
-  background-color: grey;
+  background-color: $main-background;
+  color: $font-color;
 }
 
 body {
@@ -16,6 +27,10 @@ code {
     monospace;
 }
 
+.header {
+  background-color: $container-background;
+}
+
 .feed-container {
   display: flex;
   justify-content: center;
@@ -30,6 +45,9 @@ code {
 }
 
 .post {
+  background-color: $container-background;
   width: 90%;
   border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
 }
