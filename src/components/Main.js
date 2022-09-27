@@ -48,7 +48,7 @@ function Main(props) {
 
   const createComment = async (comment, id) => {
     try {
-      await fetch(API_URL + id, {
+      await fetch(API_URL + id + '/comment', {
         method: 'PUT',
         headers: {
           'Content-type': 'Application/json',
