@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Comment from '../components/Comment';
 
 function Show({ feed, deletePost, createComment, createdTime }) {
@@ -16,7 +16,6 @@ function Show({ feed, deletePost, createComment, createdTime }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     createComment(newComment, id);
     setNewComment({
       body: '',
@@ -41,6 +40,7 @@ function Show({ feed, deletePost, createComment, createdTime }) {
     return (
       <div className='show-post'>
         <p>Made by: {post.createdBy}</p>
+        <span>{createdTime(post.createdAt)}</span>
         <h1>{post.title}</h1>
         <p>{post.content}</p>
         <form onSubmit={handleSubmit}>
