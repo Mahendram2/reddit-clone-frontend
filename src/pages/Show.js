@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import Comment from '../components/Comment';
 
-function Show({ feed, deletePost, createComment }) {
+function Show({ feed, deletePost, createComment, createdTime }) {
   const [newComment, setNewComment] = useState({ body: '', userId: 'test' });
 
   const { id } = useParams();
@@ -51,8 +52,12 @@ function Show({ feed, deletePost, createComment }) {
           />
           <input type='submit' value='Comment' />
         </form>
-        {post.replies.map((content) => (
-          <p key={Math.random()}>{content.body}</p>
+        {post.replies.map((comment) => (
+          <Comment
+            key={Math.random()}
+            comment={comment}
+            createdTime={createdTime}
+          />
         ))}
         <button onClick={handleDelete}>Delete Post</button>
       </div>
