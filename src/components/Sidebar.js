@@ -1,4 +1,16 @@
 export default function Sidebar(props) {
-    return <h2>I am the Sidebar!</h2>;
+    return (
+        <div className="sb-container">
+            <div className="communities">
+                <h4>communities</h4>
+            </div>
+            <div className="premium">
+                <h4>try premium</h4>
+            </div>
+            <div className="languages">
+                <h4>change languages</h4>
+            </div>
+        </div>
+    )
 }
   

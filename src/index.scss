@@ -60,8 +60,18 @@ a:hover {
   color: rgb(155, 107, 52);
 }
 
-.header {
-  background-color: $contrastcolor;
+.body-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: 'sidebar main main main';
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+.main {
+  grid-area: main;
 }
 
 .feed-container {
