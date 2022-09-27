@@ -1,4 +1,3 @@
-import Post from '../components/Post';
 import { Link } from 'react-router-dom';
 
 function Feed({ feed }) {
@@ -27,9 +26,6 @@ function Feed({ feed }) {
     for (let key in datevalues) {
       timeSince.push(Math.abs(postvalues[key] - datevalues[key]));
     }
-
-    console.log('Now: ', datevalues);
-    console.log('Post: ', postvalues);
 
     for (let i = 0; i < timeSince.length; i++) {
       if (timeSince[i] > 0) {
