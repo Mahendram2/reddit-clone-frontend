@@ -46,6 +46,21 @@ function Main(props) {
     }
   };
 
+  const createComment = async (comment, id) => {
+    try {
+      await fetch(API_URL + id, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'Application/json',
+        },
+        body: JSON.stringify(comment),
+      });
+    } catch (error) {
+      console.log(error);
+      // TODO craft error message for user
+    }
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -57,7 +72,13 @@ function Main(props) {
         <Route path='/newpost' element={<NewPost createPost={createPost} />} />
         <Route
           path='/post/:id'
-          element={<Show feed={feed} deletePost={deletePost} />}
+          element={
+            <Show
+              feed={feed}
+              deletePost={deletePost}
+              createComment={createComment}
+            />
+          }
         />
       </Routes>
     </div>
