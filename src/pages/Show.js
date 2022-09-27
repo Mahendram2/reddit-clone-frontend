@@ -2,7 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function Show({ feed, deletePost, createComment }) {
-  const [newComment, setNewComment] = useState({ body: '', userID: '' });
+  const [newComment, setNewComment] = useState({ body: '', userId: 'test' });
 
   const { id } = useParams();
   const post = feed ? feed.find((p) => p._id === id) : null;
@@ -17,6 +17,10 @@ function Show({ feed, deletePost, createComment }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     createComment(newComment, id);
+    setNewComment({
+      body: '',
+      userId: 'test',
+    });
   };
 
   const handleChange = (e) => {
