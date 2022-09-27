@@ -14,7 +14,8 @@ function Show({ feed, deletePost, createComment }) {
     navigate('/');
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     createComment(newComment, id);
   };
 
@@ -47,7 +48,7 @@ function Show({ feed, deletePost, createComment }) {
           <input type='submit' value='Comment' />
         </form>
         {post.replies.map((content) => (
-          <p>content</p>
+          <p key={Math.random()}>{content.body}</p>
         ))}
         <button onClick={handleDelete}>Delete Post</button>
       </div>
