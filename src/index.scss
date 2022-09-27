@@ -1,5 +1,6 @@
 $maincolor: rgb(20, 20, 20);
 $contrastcolor: rgb(240, 235, 214);
+$border-color: rgb(228, 221, 204);
 $header-font: 'Nabla', cursive;
 $main-font: 'Poppins', sans-serif;
 
@@ -84,12 +85,12 @@ a:hover {
   flex-direction: column;
   align-items: center;
   width: 70rem;
-  border: 2px solid rgb(228, 221, 204);
+  border: 2px solid $border-color;
 }
 
 .post {
   width: 90%;
-  border: 2px solid rgb(212, 207, 193);
+  border: 2px solid $border-color;
   margin: 1rem;
 }
 
@@ -103,6 +104,12 @@ a:hover {
   &:hover {
     text-decoration: none;
   }
+}
+
+.show-post {
+  width: 70%;
+  background-color: $maincolor;
+  border: 2px solid $border-color;
 }
 
 @media (min-width: 768px) {
