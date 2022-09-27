@@ -46,6 +46,58 @@ function Main(props) {
     }
   };
 
+  const createComment = async (comment, id) => {
+    try {
+      await fetch(API_URL + id + '/comment', {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'Application/json',
+        },
+        body: JSON.stringify(comment),
+      });
+    } catch (error) {
+      console.log(error);
+      // TODO craft error message for user
+    }
+  };
+
+  function createdTime(itemTime) {
+    // TODO: This works for times 1 day and greater, but the hours and minutes section needs to be reworked.
+    const date = new Date();
+    const dateValues = {
+      year: date.getFullYear(),
+      month: date.getMonth() + 1,
+      day: date.getDate(),
+      hour: date.getHours(),
+      min: date.getMinutes(),
+    };
+
+    const itemValues = {
+      year: itemTime.slice(0, 4),
+      month: itemTime.slice(5, 7),
+      day: itemTime.slice(8, 10),
+      hour: itemTime.slice(11, 13),
+      min: itemTime.slice(14, 16),
+    };
+
+    const units = ['year', 'month', 'day', 'hour', 'minute'];
+    const timeSince = [];
+
+    for (let key in dateValues) {
+      timeSince.push(Math.abs(itemValues[key] - dateValues[key]));
+    }
+
+    for (let i = 0; i < timeSince.length; i++) {
+      if (timeSince[i] > 0) {
+        if (timeSince[i] == 1) {
+          return `${timeSince[i]} ${units[i]} ago`;
+        } else {
+          return `${timeSince[i]} ${units[i]}s ago`;
+        }
+      }
+    }
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -53,11 +105,21 @@ function Main(props) {
   return (
     <div className='feed-container'>
       <Routes>
-        <Route path='/' element={<Feed feed={feed} />} />
+        <Route
+          path='/'
+          element={<Feed feed={feed} createdTime={createdTime} />}
+        />
         <Route path='/newpost' element={<NewPost createPost={createPost} />} />
         <Route
           path='/post/:id'
-          element={<Show feed={feed} deletePost={deletePost} />}
+          element={
+            <Show
+              feed={feed}
+              deletePost={deletePost}
+              createComment={createComment}
+              createdTime={createdTime}
+            />
+          }
         />
       </Routes>
     </div>

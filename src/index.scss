@@ -19,7 +19,6 @@ $main-font: 'Poppins', sans-serif;
   justify-content: center;
 }
 
-
 * {
   margin: 0;
 }
@@ -46,17 +45,15 @@ body {
   @include body;
   box-sizing: border-box;
   margin: 0;
-  font-family: $main-font
-  
-  
+  font-family: $main-font;
 }
 
 a {
   box-shadow: inset 0 0 0 0 #1f1f1f;
   color: $contrastcolor;
-  margin: 0 -.25rem;
-  padding: 0 .25rem;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 a:hover {
   box-shadow: inset 150px 0 0 0 #181818;
@@ -64,15 +61,18 @@ a:hover {
 }
 
 .body-container {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    "sidebar main main main"; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: 'sidebar main main main';
 }
 
-.sidebar { grid-area: sidebar; }
-.main { grid-area: main; }
+.sidebar {
+  grid-area: sidebar;
+}
+.main {
+  grid-area: main;
+}
 
 .feed-container {
   display: flex;
@@ -98,8 +98,9 @@ a:hover {
   align-items: center;
   div {
     margin-right: 1.5rem;
-    cursor: pointer
-  } &:hover {
+    cursor: pointer;
+  }
+  &:hover {
     text-decoration: none;
   }
 }

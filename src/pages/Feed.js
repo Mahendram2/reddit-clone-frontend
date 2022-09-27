@@ -1,7 +1,6 @@
-import Post from '../components/Post';
 import { Link } from 'react-router-dom';
 
-function Feed({ feed }) {
+function Feed({ feed, createdTime }) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
@@ -15,6 +14,7 @@ function Feed({ feed }) {
             <Link className='post-title' to={`/post/${post._id}`}>
               {post.title}
             </Link>
+            <span>{createdTime(post.createdAt)}</span>
             <p>Created By: {post.createdBy}</p>
           </div>
         ))}
