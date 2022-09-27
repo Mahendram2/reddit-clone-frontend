@@ -1,14 +1,25 @@
+import { login, logout } from '../firebase';
+
 import { Link } from 'react-router-dom';
 
-export default function Header(props) {
-  return (
-    <div className='header'>
-      <Link to='/'>
-        <h2>Redundant</h2>
-      </Link>
-      <Link to='/newpost'>
-        <div>Create A New Post</div>
-      </Link>
-    </div>
-  );
+export default function Header({ user }) {
+    return (
+        <nav className="nav">
+            <Link to="/">
+                <div>Redundant</div>
+            </Link>
+            <section className='auth-options'>
+                {
+                    user ? 
+                    <>
+                        <div>Welcome, {user.displayName}</div>
+                        <div onClick={logout}>Log Out</div>
+                    </>
+                    
+                    :
+                    <div onClick={login}>Log In</div>
+                }
+            </section>
+        </nav>
+    );
 }

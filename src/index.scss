@@ -1,30 +1,66 @@
-$main-background: rgb(3, 3, 3);
-$container-background: rgb(26, 26, 26);
-$font-color: rgb(216, 218, 220);
+$maincolor: rgb(20, 20, 20);
+$contrastcolor: rgb(240, 235, 214);
+$header-font: 'Nabla', cursive;
+$main-font: 'Poppins', sans-serif;
+
+@mixin header {
+  font-family: $header-font;
+  color: $contrastcolor;
+  background-color: $maincolor;
+}
+
+@mixin body {
+  color: $contrastcolor;
+}
+
+@mixin flex-container-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
 * {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+}
+
+.nav {
+  @include header;
+  @include flex-container-centered;
+
+  a {
+    @include header;
+    text-decoration: none;
+    div {
+      margin: 1rem;
+      font-size: x-large;
+    }
+  }
 }
 
 html {
-  background-color: $main-background;
-  color: $font-color;
+  background-color: rgb(36, 36, 36);
 }
 
 body {
+  @include body;
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: $main-font
+  
+  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  box-shadow: inset 0 0 0 0 #1f1f1f;
+  color: $contrastcolor;
+  margin: 0 -.25rem;
+  padding: 0 .25rem;
+  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a:hover {
+  box-shadow: inset 150px 0 0 0 #181818;
+  color: rgb(155, 107, 52);
 }
 
 .header {
@@ -41,13 +77,29 @@ code {
   flex-direction: column;
   align-items: center;
   width: 70rem;
-  border: 2px solid black;
+  border: 2px solid rgb(228, 221, 204);
 }
 
 .post {
   background-color: $container-background;
   width: 90%;
-  border: 2px solid black;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  border: 2px solid rgb(212, 207, 193);
+  margin: 1rem;
+}
+
+.auth-options {
+  display: flex;
+  align-items: center;
+  div {
+    margin-right: 1.5rem;
+    cursor: pointer
+  } &:hover {
+    text-decoration: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav {
+    justify-content: space-between;
+  }
 }
