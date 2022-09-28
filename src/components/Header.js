@@ -15,7 +15,6 @@ export default function Header({ user }) {
                         <div>Welcome, {user.displayName}</div>
                         <div onClick={logout}>Log Out</div>
                     </>
-                    
                     :
                     <div onClick={login}>Log In</div>
                 }
