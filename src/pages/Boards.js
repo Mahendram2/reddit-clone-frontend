@@ -11,6 +11,7 @@ function Boards({ feed, createdTime, user }) {
       return filteredPosts;
     }
 
+    const generalPosts = filterPosts('General');
     const moviePosts = filterPosts('Movies');
     const gamesPosts = filterPosts('Video Games');
     const sportsPosts = filterPosts('Sports');
@@ -18,6 +19,18 @@ function Boards({ feed, createdTime, user }) {
     return (
       <div className='boards'>
         <h1>Boards</h1>
+        <div className='board'>
+          <h2>General</h2>
+          {generalPosts.map((post) => (
+            <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link>
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
+            </div>
+          ))}
+        </div>
         <div className='board'>
           <h2>Movies</h2>
           {moviePosts.map((post) => (
