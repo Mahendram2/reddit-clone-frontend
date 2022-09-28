@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Boards({ feed, createdTime, user }) {
   const loading = () => {
     return <h1>Loading...</h1>;
@@ -10,6 +12,8 @@ function Boards({ feed, createdTime, user }) {
     }
 
     const moviePosts = filterPosts('Movies');
+    const gamesPosts = filterPosts('Video Games');
+    const sportsPosts = filterPosts('Sports');
 
     return (
       <div className='boards'>
@@ -17,7 +21,37 @@ function Boards({ feed, createdTime, user }) {
         <div className='board'>
           <h2>Movies</h2>
           {moviePosts.map((post) => (
-            <h3 key={Math.random}>{post.title}</h3>
+            <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link>
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
+            </div>
+          ))}
+        </div>
+        <div className='board'>
+          <h2>Video Games</h2>
+          {gamesPosts.map((post) => (
+            <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link>
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
+            </div>
+          ))}
+        </div>
+        <div className='board'>
+          <h2>Sports</h2>
+          {sportsPosts.map((post) => (
+            <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link>
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
+            </div>
           ))}
         </div>
       </div>
