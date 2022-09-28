@@ -1,15 +1,10 @@
 import { Link } from 'react-router-dom';
 
-function Feed({ feed, createdTime }) {
-
-  
+function Feed({ feed, createdTime, user }) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
 
-  // CANT SEEM TO GET THIS TO WORK...
-  // if(!props.user) return <h1>Please Log In to see data</h1>;
-  
   const loaded = () => {
     return (
       <div className='feed'>
