@@ -6,6 +6,7 @@ function NewPost({ createPost, user }) {
     title: '',
     createdBy: '',
     content: '',
+    category: '',
   });
 
   const navigate = useNavigate();
@@ -20,14 +21,11 @@ function NewPost({ createPost, user }) {
     };
     const handleSubmit = (e) => {
       e.preventDefault();
-      setNewPost({
-        ...newPost,
-        createdBy: user.displayName,
-      });
       createPost(newPost);
       setNewPost({
         title: '',
         content: '',
+        category: '',
       });
       navigate('/');
     };
@@ -40,10 +38,10 @@ function NewPost({ createPost, user }) {
             Category:
             <input
               type='text'
-              name='title'
-              value={newPost.title}
+              name='category'
+              value={newPost.category}
               onChange={handleChange}
-              placeholder='Title'
+              placeholder='Category'
             />
           </label>
           <label>
