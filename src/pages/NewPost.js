@@ -36,13 +36,12 @@ function NewPost({ createPost, user }) {
         <form onSubmit={handleSubmit}>
           <label>
             Category:
-            <input
-              type='text'
-              name='category'
-              value={newPost.category}
-              onChange={handleChange}
-              placeholder='Category'
-            />
+            <select name='category' onChange={handleChange}>
+              <option value='General'>General</option>
+              <option value='Movies'>Movies</option>
+              <option value='Sports'>Sports</option>
+              <option value='Video Games'>Video Games</option>
+            </select>
           </label>
           <label>
             Title:
