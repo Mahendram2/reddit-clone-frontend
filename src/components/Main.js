@@ -68,14 +68,13 @@ function Main({ user }) {
   };
 
   function createdTime(itemTime) {
-    // TODO: This works for times 1 day and greater, but the hours and minutes section needs to be reworked.
     const date = new Date();
     const dateValues = {
-      year: date.getFullYear(),
-      month: date.getMonth() + 1,
-      day: date.getDate(),
-      hour: date.getHours(),
-      min: date.getMinutes(),
+      year: date.getUTCFullYear(),
+      month: date.getUTCMonth() + 1,
+      day: date.getUTCDate(),
+      hour: date.getUTCHours(),
+      min: date.getUTCMinutes(),
     };
 
     const itemValues = {
@@ -95,7 +94,7 @@ function Main({ user }) {
 
     for (let i = 0; i < timeSince.length; i++) {
       if (timeSince[i] > 0) {
-        if (timeSince[i] == 1) {
+        if (timeSince[i] === 1) {
           return `${timeSince[i]} ${units[i]} ago`;
         } else {
           return `${timeSince[i]} ${units[i]}s ago`;
