@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function NewPost({ createPost }) {
+function NewPost({ createPost, user }) {
   const [newPost, setNewPost] = useState({
     title: '',
     createdBy: '',
@@ -10,61 +10,73 @@ function NewPost({ createPost }) {
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setNewPost({
-      ...newPost,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    createPost(newPost);
-    setNewPost({
-      title: '',
-      createdBy: '',
-      content: '',
-    });
-    navigate('/');
+  const signedIn = () => {
+    const handleChange = (e) => {
+      setNewPost({
+        ...newPost,
+        [e.target.name]: e.target.value,
+        createdBy: user.displayName,
+      });
+    };
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      setNewPost({
+        ...newPost,
+        createdBy: user.displayName,
+      });
+      createPost(newPost);
+      setNewPost({
+        title: '',
+        content: '',
+      });
+      navigate('/');
+    };
+
+    return (
+      <div>
+        <h1>Create a New Post</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Category:
+            <input
+              type='text'
+              name='title'
+              value={newPost.title}
+              onChange={handleChange}
+              placeholder='Title'
+            />
+          </label>
+          <label>
+            Title:
+            <input
+              type='text'
+              name='title'
+              value={newPost.title}
+              onChange={handleChange}
+              placeholder='Title'
+            />
+          </label>
+          <label>
+            Content:
+            <textarea
+              type='text'
+              name='content'
+              value={newPost.content}
+              onChange={handleChange}
+              placeholder='Post Text Content'
+            />
+          </label>
+          <input type='submit' value='Create Post' />
+        </form>
+      </div>
+    );
   };
 
-  return (
-    <div>
-      <h1>Create a New Post</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title:
-          <input
-            type='text'
-            name='title'
-            value={newPost.title}
-            onChange={handleChange}
-            placeholder='Title'
-          />
-        </label>
-        <label>
-          Author:
-          <input
-            type='text'
-            name='createdBy'
-            value={newPost.createdBy}
-            onChange={handleChange}
-            placeholder='Author'
-          />
-        </label>
-        <label>
-          Content:
-          <textarea
-            type='text'
-            name='content'
-            value={newPost.content}
-            onChange={handleChange}
-            placeholder='Post Text Content'
-          />
-        </label>
-        <input type='submit' value='Create Post' />
-      </form>
-    </div>
-  );
+  const noUser = () => {
+    return <h1>Sign in to create a post!</h1>;
+  };
+
+  return user ? signedIn() : noUser();
 }
 
 export default NewPost;
