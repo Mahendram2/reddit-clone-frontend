@@ -1,14 +1,20 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
 import Show from '../pages/Show';
 
-function Main(props) {
+// HERE FOR IF WE WANT TO HIDE DATA
+function PrivatePageContainer({ children, user }) {
+  return user ? children : <Navigate to="/" />
+}
+
+function Main({ user }) {
+
   const [feed, setFeed] = useState(null);
 
   const API_URL = 'http://localhost:4000/api/post/';
-
+  
   const getData = async () => {
     try {
       const response = await fetch(API_URL);
@@ -99,26 +105,31 @@ function Main(props) {
   }
 
   useEffect(() => {
-    getData();
-  }, []);
+    if(user) {
+      getData();
+    } else {
+      setFeed(null)
+    }
+    
+  }, [user]);
 
   return (
     <div className='feed-container'>
       <Routes>
-        <Route
-          path='/'
-          element={<Feed feed={feed} createdTime={createdTime} />}
-        />
+          <Route
+            path='/'
+            element={<Feed feed={feed} createdTime={createdTime} />}
+          />
         <Route path='/newpost' element={<NewPost createPost={createPost} />} />
         <Route
           path='/post/:id'
           element={
-            <Show
-              feed={feed}
-              deletePost={deletePost}
-              createComment={createComment}
-              createdTime={createdTime}
-            />
+              <Show
+                feed={feed}
+                deletePost={deletePost}
+                createComment={createComment}
+                createdTime={createdTime}
+              />
           }
         />
       </Routes>
