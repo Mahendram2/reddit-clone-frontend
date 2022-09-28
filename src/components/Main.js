@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
 import Show from '../pages/Show';
+import Boards from '../pages/Boards';
 
 // HERE FOR IF WE WANT TO HIDE DATA
 function PrivatePageContainer({ children, user }) {
@@ -133,6 +134,10 @@ function Main({ user }) {
               user={user}
             />
           }
+        />
+        <Route
+          path='/boards'
+          element={<Boards feed={feed} createdTime={createdTime} user={user} />}
         />
       </Routes>
     </div>
