@@ -6,7 +6,7 @@ function NewPost({ createPost, user }) {
     title: '',
     createdBy: '',
     content: '',
-    category: '',
+    category: 'General',
   });
 
   const navigate = useNavigate();
