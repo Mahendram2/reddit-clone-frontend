@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 
-function Feed({ feed, createdTime, user }) {
+function Feed({ feed, createdTime, user, sortPostsMostRecent }) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
 
   const loaded = () => {
+    feed = sortPostsMostRecent(feed);
     return (
       <div className='feed'>
         <h1>I am the Feed Component</h1>

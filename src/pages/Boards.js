@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Boards({ feed, createdTime, user }) {
+function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
@@ -11,10 +11,10 @@ function Boards({ feed, createdTime, user }) {
       return filteredPosts;
     }
 
-    const generalPosts = filterPosts('General');
-    const moviePosts = filterPosts('Movies');
-    const gamesPosts = filterPosts('Video Games');
-    const sportsPosts = filterPosts('Sports');
+    const generalPosts = sortPostsMostRecent(filterPosts('General'));
+    const moviePosts = sortPostsMostRecent(filterPosts('Movies'));
+    const gamesPosts = sortPostsMostRecent(filterPosts('Video Games'));
+    const sportsPosts = sortPostsMostRecent(filterPosts('Sports'));
 
     return (
       <div className='boards'>
