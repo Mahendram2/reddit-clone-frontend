@@ -1,34 +1,31 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-function Buttons(props){
-    const [num, setNum] = useState(0);
+function Buttons({ count, postId, updateCounter }) {
+  const [num, setNum] = useState(count);
 
-    const Increment = () =>{
-        setNum(num+1)
-    }
-    const Decrement = () =>{
-       if (num >0){
-           setNum(num-1)
-       }else {
-        setNum(0)
-       }
-    }
-    return(
-        <>
-        <button
-            onClick={Increment}
-            dangerouslySetInnerHTML={{ __html: "&uarr;" }}
-            >
-        </button>
-        <h1>{num}</h1>
-       <button
+  //   Clicking the buttons will rerender the component once, but subsequent clicks not rerender, but will still update the count
+  const Increment = () => {
+    setNum(count + 1);
+    updateCounter({ counter: num + 1 }, postId);
+  };
+  const Decrement = () => {
+    setNum(count - 1);
+    updateCounter({ counter: num - 1 }, postId);
+  };
 
+  return (
+    <>
+      <button
+        onClick={Increment}
+        dangerouslySetInnerHTML={{ __html: '&uarr;' }}
+      ></button>
+      <h1>{num}</h1>
+      <button
         onClick={Decrement}
-          dangerouslySetInnerHTML={{ __html: "&darr;" }}
-        >
-        </button>
-        </>
-    )
+        dangerouslySetInnerHTML={{ __html: '&darr;' }}
+      ></button>
+    </>
+  );
 }
 
 export default Buttons;
