@@ -1,21 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar(props) {
-    return (
-        <div className="sb-container">
-            <Link to='./newpost' className="create">
-                <button type="button" className="create-b">Create Post</button>
-            </Link>
-            <Link to='./boards' className="boards-link">
-                <button type="button" className="create-b">Boards</button>
-            </Link>
-            <Link to='premium'>
-                <button type="button" className="create-b">Upgrade</button>
-            </Link>
-            <Link to='./language'>
-                <button type="button" className="create-b">Change Language</button>
-            </Link>
-        </div>
-    )
+  return (
+    <div className='sb-container'>
+      <div className='create'>
+        <a href='./newpost'>
+          <button type='button' className='create-b'>
+            Create Post
+          </button>
+        </a>
+      </div>
+      <div className='boards-link'>
+        <a href='./boards'>
+          <button type='button' className='create-b'>
+            Boards
+          </button>
+        </a>
+      </div>
+      <div className='premium'>
+        <a href='./upgrade'>
+          <button type='button' className='create-b'>
+            Upgrade
+          </button>
+        </a>
+      </div>
+      <div className='languages'>
+        <a href='./language'>
+          <button type='button' className='create-b'>
+            Change Language
+          </button>
+        </a>
+      </div>
+    </div>
+  );
+
 }
-  

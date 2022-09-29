@@ -143,7 +143,7 @@ function Main({ user }) {
     <div className='feed-container'>
       <Routes>
         <Route
-          path='/'
+          path='/:page'
           element={
             <Feed
               feed={feed}
