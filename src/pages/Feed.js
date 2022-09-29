@@ -10,7 +10,7 @@ function Feed({ feed, createdTime, user, sortPostsMostRecent }) {
     feed = sortPostsMostRecent(feed);
     return (
       <div className='feed'>
-        <h1>I am the Feed Component</h1>
+        <h1>Latest Posts</h1>
         {feed.map((post) => (
           <div className='post' key={post._id}>
             < Buttons />
