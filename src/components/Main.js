@@ -103,6 +103,19 @@ function Main({ user }) {
     }
   }
 
+  function sortPostsMostRecent(posts) {
+    posts.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+      if (a.createdAt < b.createdAt) {
+        return 1;
+      }
+      return 0;
+    });
+    return posts;
+  }
+
   useEffect(() => {
     if (user) {
       getData();
@@ -116,7 +129,14 @@ function Main({ user }) {
       <Routes>
         <Route
           path='/'
-          element={<Feed feed={feed} createdTime={createdTime} user={user} />}
+          element={
+            <Feed
+              feed={feed}
+              createdTime={createdTime}
+              sortPostsMostRecent={sortPostsMostRecent}
+              user={user}
+            />
+          }
         />
         <Route
           path='/newpost'
@@ -136,7 +156,14 @@ function Main({ user }) {
         />
         <Route
           path='/boards'
-          element={<Boards feed={feed} createdTime={createdTime} user={user} />}
+          element={
+            <Boards
+              feed={feed}
+              createdTime={createdTime}
+              sortPostsMostRecent={sortPostsMostRecent}
+              user={user}
+            />
+          }
         />
       </Routes>
     </div>
