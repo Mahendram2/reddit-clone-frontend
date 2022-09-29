@@ -27,7 +27,7 @@ function NewPost({ createPost, user }) {
         content: '',
         category: '',
       });
-      navigate('/');
+      navigate('/1');
     };
 
     return (
