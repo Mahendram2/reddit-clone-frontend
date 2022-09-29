@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import Buttons from '../components/Buttons';
 function Feed({ feed, createdTime }) {
 
   
@@ -16,6 +16,7 @@ function Feed({ feed, createdTime }) {
         <h1>I am the Feed Component</h1>
         {feed.map((post) => (
           <div className='post' key={post._id}>
+            < Buttons />
             <Link className='post-title' to={`/post/${post._id}`}>
               {post.title}
             </Link>
