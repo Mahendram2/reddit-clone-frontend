@@ -9,19 +9,19 @@ function Feed({ feed, createdTime, user, sortPostsMostRecent, updateCounter }) {
     feed = sortPostsMostRecent(feed);
     return (
       <div className='feed'>
-        <h1>Latest Posts</h1>
+        <h1 className='title'>Latest Posts</h1>
         {feed.map((post) => (
           <div className='post' key={post._id}>
+            <Link className='post-title' to={`/post/${post._id}`}>
+              {post.title}
+            </Link><br />
+            <span>{createdTime(post.createdAt)}</span>
+            <p>Created By: {post.createdBy}</p>
             <Buttons
               count={post.counter}
               postId={post._id}
               updateCounter={updateCounter}
             />
-            <Link className='post-title' to={`/post/${post._id}`}>
-              {post.title}
-            </Link>
-            <span>{createdTime(post.createdAt)}</span>
-            <p>Created By: {post.createdBy}</p>
           </div>
         ))}
       </div>

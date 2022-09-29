@@ -4,7 +4,7 @@ export default function Sidebar(props) {
             <div className="create">
                 <a href="./newpost"><button type="button" className="create-b">Create Post</button></a>
             </div>
-            <div className="boards">
+            <div className="boards-link">
                 <a href="./boards"><button type="button" className="create-b">Boards</button></a>
             </div>
             <div className="premium">

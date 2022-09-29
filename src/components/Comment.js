@@ -1,9 +1,8 @@
 function Comment({ comment, createdTime }) {
   return (
     <div className='comment'>
-      <p>From: {comment.userId}</p>
-      <span>{createdTime(comment.createdAt)}</span>
-      <p>{comment.body}</p>
+      <h3>"{comment.body}"</h3>
+      <h4 className="created-by">{comment.userId} - <span>{createdTime(comment.createdAt)}</span></h4>
     </div>
   );
 }
