@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
+import Buttons from '../components/Buttons';
 
-function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
+function Boards({
+  feed,
+  createdTime,
+  user,
+  sortPostsMostRecent,
+  updateCounter,
+}) {
   const loading = () => {
     return <h1>Loading...</h1>;
   };
@@ -23,6 +30,11 @@ function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
           <h2>General</h2>
           {generalPosts.map((post) => (
             <div className='post' key={post._id}>
+              <Buttons
+                updateCounter={updateCounter}
+                count={post.counter}
+                postId={post._id}
+              />
               <Link className='post-title' to={`/post/${post._id}`}>
                 {post.title}
               </Link>
@@ -35,6 +47,11 @@ function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
           <h2>Movies</h2>
           {moviePosts.map((post) => (
             <div className='post' key={post._id}>
+              <Buttons
+                updateCounter={updateCounter}
+                count={post.counter}
+                postId={post._id}
+              />
               <Link className='post-title' to={`/post/${post._id}`}>
                 {post.title}
               </Link>
@@ -47,6 +64,11 @@ function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
           <h2>Video Games</h2>
           {gamesPosts.map((post) => (
             <div className='post' key={post._id}>
+              <Buttons
+                updateCounter={updateCounter}
+                count={post.counter}
+                postId={post._id}
+              />
               <Link className='post-title' to={`/post/${post._id}`}>
                 {post.title}
               </Link>
@@ -59,6 +81,11 @@ function Boards({ feed, createdTime, user, sortPostsMostRecent }) {
           <h2>Sports</h2>
           {sportsPosts.map((post) => (
             <div className='post' key={post._id}>
+              <Buttons
+                updateCounter={updateCounter}
+                count={post.counter}
+                postId={post._id}
+              />
               <Link className='post-title' to={`/post/${post._id}`}>
                 {post.title}
               </Link>

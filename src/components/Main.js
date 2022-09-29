@@ -52,6 +52,21 @@ function Main({ user }) {
     }
   };
 
+  const updateCounter = async (count, id) => {
+    try {
+      await fetch(API_URL + id, {
+        method: 'PUT',
+        headers: {
+          'Content-type': 'Application/json',
+        },
+        body: JSON.stringify(count),
+      });
+    } catch (error) {
+      console.log(error);
+      // TODO craft error message for user
+    }
+  };
+
   const createComment = async (comment, id) => {
     try {
       await fetch(API_URL + id + '/comment', {
@@ -134,6 +149,7 @@ function Main({ user }) {
               feed={feed}
               createdTime={createdTime}
               sortPostsMostRecent={sortPostsMostRecent}
+              updateCounter={updateCounter}
               user={user}
             />
           }
@@ -150,6 +166,7 @@ function Main({ user }) {
               deletePost={deletePost}
               createComment={createComment}
               createdTime={createdTime}
+              updateCounter={updateCounter}
               user={user}
             />
           }
@@ -161,6 +178,7 @@ function Main({ user }) {
               feed={feed}
               createdTime={createdTime}
               sortPostsMostRecent={sortPostsMostRecent}
+              updateCounter={updateCounter}
               user={user}
             />
           }

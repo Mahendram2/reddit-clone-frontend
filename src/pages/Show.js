@@ -1,8 +1,16 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Comment from '../components/Comment';
+import Buttons from '../components/Buttons';
 
-function Show({ feed, deletePost, createComment, createdTime, user }) {
+function Show({
+  feed,
+  deletePost,
+  createComment,
+  createdTime,
+  user,
+  updateCounter,
+}) {
   const [newComment, setNewComment] = useState({
     body: '',
     userId: user ? user.displayName : '',
@@ -42,6 +50,11 @@ function Show({ feed, deletePost, createComment, createdTime, user }) {
   const loaded = () => {
     return (
       <div className='show-post'>
+        <Buttons
+          updateCounter={updateCounter}
+          count={post.counter}
+          postId={post._id}
+        />
         <p>Made by: {post.createdBy}</p>
         <span>{createdTime(post.createdAt)}</span>
         <h1>{post.title}</h1>
