@@ -3,6 +3,7 @@
 A Reddit Clone
 
 ## Technologies Used
+
 - MongoDB
 - Express
 - React
@@ -12,10 +13,13 @@ A Reddit Clone
 - Netlify
 
 ## Screenshot
+
 - TBD
 
 ## Getting Started
- - TBD
+
+- TBD
 
 ## Future Enhancements
- - everything!!!
+
+- everything!!!

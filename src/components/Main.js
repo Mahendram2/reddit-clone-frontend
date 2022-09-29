@@ -22,7 +22,6 @@ function Main({ user }) {
       setFeed(data);
     } catch (error) {
       console.log('Error: Bad request!!');
-      // TODO craft error message for user
     }
   };
 
@@ -36,7 +35,6 @@ function Main({ user }) {
       getData();
     } catch (error) {
       console.log('Error: Bad request!!');
-      // TODO craft error message for user
     }
   };
 
@@ -48,7 +46,6 @@ function Main({ user }) {
       getData();
     } catch (error) {
       console.log('Error: Bad request!!');
-      // TODO craft error message for user
     }
   };
 
@@ -63,7 +60,6 @@ function Main({ user }) {
       });
     } catch (error) {
       console.log(error);
-      // TODO craft error message for user
     }
   };
 
@@ -78,7 +74,6 @@ function Main({ user }) {
       });
     } catch (error) {
       console.log('Error: Bad request!!');
-      // TODO craft error message for user
     }
   };
 
@@ -132,12 +127,8 @@ function Main({ user }) {
   }
 
   useEffect(() => {
-    if (user) {
-      getData();
-    } else {
-      setFeed(null);
-    }
-  }, [user]);
+    getData();
+  }, []);
 
   return (
     <div className='feed-container'>
