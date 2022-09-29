@@ -43,6 +43,16 @@ $select-height: 40px;
   }
 }
 
+.pagination {
+  li {
+    margin: 8px;
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
 html {
   background-color: rgb(36, 36, 36);
 }
