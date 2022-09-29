@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Header({ user }) {
     return (
         <nav className="nav">
-            <Link to="/">
+            <Link to="/1">
                 <div>Redundant</div>
             </Link>
             <section className='auth-options'>

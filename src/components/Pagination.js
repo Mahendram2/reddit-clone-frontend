@@ -14,7 +14,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, pageNum }) => {
       <ul className='pagination'>
         {pageNum !== '1' ? (
           <Link to={`/${pageNum - 1}`} onClick={() => paginate(pageNum - 1)}>
-            {'<Prev'}
+            {'<<<'}
           </Link>
         ) : null}
         {pageNumbers.map((number) => (
@@ -33,7 +33,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, pageNum }) => {
             to={`/${parseInt(pageNum, 10) + 1}`}
             onClick={() => paginate(parseInt(pageNum, 10) + 1)}
           >
-            {'Next>'}
+            {'>>>'}
           </Link>
         ) : null}
       </ul>
