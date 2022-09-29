@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
 import Buttons from '../components/Buttons';
-function Feed({ feed, createdTime }) {
+function Feed({ feed, createdTime, user, sortPostsMostRecent }) {
 
-  
   const loading = () => {
     return <h1>Loading...</h1>;
   };
 
-  // CANT SEEM TO GET THIS TO WORK...
-  // if(!props.user) return <h1>Please Log In to see data</h1>;
-  
   const loaded = () => {
+    feed = sortPostsMostRecent(feed);
     return (
       <div className='feed'>
         <h1>I am the Feed Component</h1>

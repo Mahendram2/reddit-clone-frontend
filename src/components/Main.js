@@ -3,18 +3,18 @@ import { useState, useEffect } from 'react';
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
 import Show from '../pages/Show';
+import Boards from '../pages/Boards';
 
 // HERE FOR IF WE WANT TO HIDE DATA
 function PrivatePageContainer({ children, user }) {
-  return user ? children : <Navigate to="/" />
+  return user ? children : <Navigate to='/' />;
 }
 
 function Main({ user }) {
-
   const [feed, setFeed] = useState(null);
 
   const API_URL = 'http://localhost:4000/api/post/';
-  
+
   const getData = async () => {
     try {
       const response = await fetch(API_URL);
@@ -68,14 +68,13 @@ function Main({ user }) {
   };
 
   function createdTime(itemTime) {
-    // TODO: This works for times 1 day and greater, but the hours and minutes section needs to be reworked.
     const date = new Date();
     const dateValues = {
-      year: date.getFullYear(),
-      month: date.getMonth() + 1,
-      day: date.getDate(),
-      hour: date.getHours(),
-      min: date.getMinutes(),
+      year: date.getUTCFullYear(),
+      month: date.getUTCMonth() + 1,
+      day: date.getUTCDate(),
+      hour: date.getUTCHours(),
+      min: date.getUTCMinutes(),
     };
 
     const itemValues = {
@@ -95,7 +94,7 @@ function Main({ user }) {
 
     for (let i = 0; i < timeSince.length; i++) {
       if (timeSince[i] > 0) {
-        if (timeSince[i] == 1) {
+        if (timeSince[i] === 1) {
           return `${timeSince[i]} ${units[i]} ago`;
         } else {
           return `${timeSince[i]} ${units[i]}s ago`;
@@ -104,32 +103,66 @@ function Main({ user }) {
     }
   }
 
+  function sortPostsMostRecent(posts) {
+    posts.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      }
+      if (a.createdAt < b.createdAt) {
+        return 1;
+      }
+      return 0;
+    });
+    return posts;
+  }
+
   useEffect(() => {
-    if(user) {
+    if (user) {
       getData();
     } else {
-      setFeed(null)
+      setFeed(null);
     }
-    
   }, [user]);
 
   return (
     <div className='feed-container'>
       <Routes>
-          <Route
-            path='/'
-            element={<Feed feed={feed} createdTime={createdTime} />}
-          />
-        <Route path='/newpost' element={<NewPost createPost={createPost} />} />
+        <Route
+          path='/'
+          element={
+            <Feed
+              feed={feed}
+              createdTime={createdTime}
+              sortPostsMostRecent={sortPostsMostRecent}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path='/newpost'
+          element={<NewPost createPost={createPost} user={user} />}
+        />
         <Route
           path='/post/:id'
           element={
-              <Show
-                feed={feed}
-                deletePost={deletePost}
-                createComment={createComment}
-                createdTime={createdTime}
-              />
+            <Show
+              feed={feed}
+              deletePost={deletePost}
+              createComment={createComment}
+              createdTime={createdTime}
+              user={user}
+            />
+          }
+        />
+        <Route
+          path='/boards'
+          element={
+            <Boards
+              feed={feed}
+              createdTime={createdTime}
+              sortPostsMostRecent={sortPostsMostRecent}
+              user={user}
+            />
           }
         />
       </Routes>

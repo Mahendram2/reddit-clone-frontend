@@ -2,8 +2,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Comment from '../components/Comment';
 
-function Show({ feed, deletePost, createComment, createdTime }) {
-  const [newComment, setNewComment] = useState({ body: '', userId: 'test' });
+function Show({ feed, deletePost, createComment, createdTime, user }) {
+  const [newComment, setNewComment] = useState({
+    body: '',
+    userId: user ? user.displayName : '',
+  });
 
   const { id } = useParams();
   const post = feed ? feed.find((p) => p._id === id) : null;
@@ -57,6 +60,7 @@ function Show({ feed, deletePost, createComment, createdTime }) {
             key={Math.random()}
             comment={comment}
             createdTime={createdTime}
+            user={user}
           />
         ))}
         <button onClick={handleDelete}>Delete Post</button>
