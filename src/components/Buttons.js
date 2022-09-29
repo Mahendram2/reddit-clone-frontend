@@ -15,15 +15,17 @@ function Buttons({ count, postId, updateCounter }) {
 
   return (
     <>
-      <button
-        onClick={Increment}
-        dangerouslySetInnerHTML={{ __html: '&uarr;' }}
-      ></button>
-      <h1>{num}</h1>
-      <button
-        onClick={Decrement}
-        dangerouslySetInnerHTML={{ __html: '&darr;' }}
-      ></button>
+      <ul>
+        <li>
+          <button onClick={Increment} dangerouslySetInnerHTML={{ __html: '&uarr;' }} className="create-b"></button>
+        </li>
+        <li className='count'>
+            <h1 className='create-b'>{num}</h1>
+        </li>
+        <li>
+          <button onClick={Decrement} dangerouslySetInnerHTML={{ __html: '&darr;' }} className="create-b"></button>
+        </li>
+      </ul>
     </>
   );
 }
