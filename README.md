@@ -13,8 +13,9 @@ A Reddit Clone
 - Netlify
 
 ## Screenshot
-
-- TBD
+![Alt text](/src/img/screen-home.png)
+![Alt text](/src/img/screen-create.png)
+![Alt text](/src/img/screen-show.png)
 
 ## Getting Started
 
