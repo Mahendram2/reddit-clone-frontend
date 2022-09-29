@@ -3,6 +3,11 @@ $contrastcolor: rgb(240, 235, 214);
 $border-color: rgb(228, 221, 204);
 $header-font: 'Nabla', cursive;
 $main-font: 'Poppins', sans-serif;
+$background: #e74c3c;
+$select-color: #fff;
+$select-background: #c0392b;
+$select-width: 220px;
+$select-height: 40px; 
 
 @mixin header {
   font-family: $header-font;
@@ -143,12 +148,89 @@ a:hover {
   border: 2px solid $border-color;
 }
 
+input[type=text] {
+  padding:10px;
+  margin:10px 10px; // add top and bottom margin
+  box-sizing: border-box;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border-radius: 10px;
+  border: 3px solid rgb(255,209,98);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+textarea {
+  width:100%;
+  resize: vertical;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+  height:150px;
+  align-self: center;
+  border: 3px solid rgb(255,209,98);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+textarea:focus {
+  border: 3px solid rgb(211, 104, 37);
+}
+
+input[type=text]:focus {
+  border: 3px solid rgb(211, 104, 37);
+}
+
 @media (min-width: 768px) {
   .nav {
     justify-content: space-between;
   }
 }
 
+.category {
+  position: relative;
+  align-self: center;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+}
 
+.category select {
+  background-color: rgb(255,209,98);
+  color: rgb(211, 104, 37);
+  padding: 12px;
+  width: 150px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+  border-radius: 15px;
+}
 
+.category:before {
+  content: "\f13a";
+  font-family: Poppins;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.category:hover :before {
+  color: rgba(167, 105, 105, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.category select option {
+  padding: 30px;
+}
 
