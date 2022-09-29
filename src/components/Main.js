@@ -21,7 +21,7 @@ function Main({ user }) {
       const data = await response.json();
       setFeed(data);
     } catch (error) {
-      console.log(error);
+      console.log('Error: Bad request!!');
       // TODO craft error message for user
     }
   };
@@ -35,7 +35,7 @@ function Main({ user }) {
       });
       getData();
     } catch (error) {
-      console.log(error);
+      console.log('Error: Bad request!!');
       // TODO craft error message for user
     }
   };
@@ -47,7 +47,7 @@ function Main({ user }) {
       });
       getData();
     } catch (error) {
-      console.log(error);
+      console.log('Error: Bad request!!');
       // TODO craft error message for user
     }
   };
@@ -77,7 +77,7 @@ function Main({ user }) {
         body: JSON.stringify(comment),
       });
     } catch (error) {
-      console.log(error);
+      console.log('Error: Bad request!!');
       // TODO craft error message for user
     }
   };
