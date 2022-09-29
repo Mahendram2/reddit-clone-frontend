@@ -27,7 +27,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate, pageNum }) => {
             </Link>
           </li>
         ))}
-        {pageNum != pageNumbers.length ? (
+        {parseInt(pageNum, 10) !== pageNumbers.length ? (
           <Link
             to={`/${parseInt(pageNum, 10) + 1}`}
             onClick={() => paginate(parseInt(pageNum, 10) + 1)}
