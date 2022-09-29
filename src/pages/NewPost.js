@@ -34,17 +34,15 @@ function NewPost({ createPost, user }) {
       <div>
         <h1>Create a New Post</h1>
         <form onSubmit={handleSubmit}>
-          <label>
-            Category:
+          <label className='category'>
             <select name='category' onChange={handleChange}>
               <option value='General'>General</option>
               <option value='Movies'>Movies</option>
               <option value='Sports'>Sports</option>
               <option value='Video Games'>Video Games</option>
             </select>
-          </label>
+          </label><br />
           <label>
-            Title:
             <input
               type='text'
               name='title'
@@ -52,7 +50,7 @@ function NewPost({ createPost, user }) {
               onChange={handleChange}
               placeholder='Title'
             />
-          </label>
+          </label><br />
           <label>
             Content:
             <textarea
@@ -62,8 +60,8 @@ function NewPost({ createPost, user }) {
               onChange={handleChange}
               placeholder='Post Text Content'
             />
-          </label>
-          <input type='submit' value='Create Post' />
+          </label><br />
+          <input type='submit' value='Submit' className='create-b' />
         </form>
       </div>
     );
