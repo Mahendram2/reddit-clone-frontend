@@ -23,7 +23,7 @@ function Show({
 
   const handleDelete = () => {
     deletePost(post._id);
-    navigate('/');
+    navigate('/1');
   };
 
   const handleSubmit = (e) => {
@@ -50,18 +50,26 @@ function Show({
   const loaded = () => {
     return (
       <div className='show-post post'>
-        <h1>{post.title}</h1><br />
-        <p>{post.createdBy} - <span>{createdTime(post.createdAt)}</span></p><br />
+        <h1>{post.title}</h1>
+        <br />
+        <p>
+          {post.createdBy} - <span>{createdTime(post.createdAt)}</span>
+        </p>
+        <br />
         <p>{post.content}</p>
-        <form onSubmit={handleSubmit}>
-          <input
-            type='text'
-            name='body'
-            value={newComment.body}
-            onChange={handleChange}
-          />
-          <input type='submit' value='Comment' className='create-b'/>
-        </form>
+        {user ? (
+          <form onSubmit={handleSubmit}>
+            <input
+              type='text'
+              name='body'
+              value={newComment.body}
+              onChange={handleChange}
+            />
+            <input type='submit' value='Comment' className='create-b' />
+          </form>
+        ) : (
+          <p className='sign-in-to'>Sign in to leave a comment</p>
+        )}
         {post.replies.map((comment) => (
           <Comment
             key={Math.random()}
@@ -78,9 +86,13 @@ function Show({
               postId={post._id}
             />
           </li>
-          <li>
-            <button onClick={handleDelete} className='create-b'>Delete Post</button>
-          </li>
+          {user ? (
+            <li>
+              <button onClick={handleDelete} className='create-b'>
+                Delete Post
+              </button>
+            </li>
+          ) : null}
         </ul>
       </div>
     );

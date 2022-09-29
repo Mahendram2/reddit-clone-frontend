@@ -7,7 +7,7 @@ $background: #e74c3c;
 $select-color: #fff;
 $select-background: #c0392b;
 $select-width: 220px;
-$select-height: 40px; 
+$select-height: 40px;
 
 @mixin header {
   font-family: $header-font;
@@ -100,9 +100,9 @@ a:hover {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 10% auto;
-  grid-template-areas: 
-  'title title title title'
-  'general movies vg sports';
+  grid-template-areas:
+    'title title title title'
+    'general movies vg sports';
 }
 
 .general {
@@ -129,11 +129,12 @@ a:hover {
   text-decoration: none;
   text-transform: uppercase;
   color: rgb(211, 104, 37);
-  background-color: rgb(255,209,98);
+  background-color: rgb(255, 209, 98);
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
@@ -183,7 +184,9 @@ li {
   width: 90%;
   border: 2px solid $border-color;
   border-radius: 10px;
-  box-shadow: rgba(189, 66, 9, 0.4) 5px 5px, rgba(194, 121, 26, 0.3) 10px 10px, rgba(235, 180, 78, 0.2) 15px 15px, rgba(107, 68, 16, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  box-shadow: rgba(189, 66, 9, 0.4) 5px 5px, rgba(194, 121, 26, 0.3) 10px 10px,
+    rgba(235, 180, 78, 0.2) 15px 15px, rgba(107, 68, 16, 0.1) 20px 20px,
+    rgba(240, 46, 170, 0.05) 25px 25px;
   margin: 1rem;
   justify-content: center;
   align-content: center;
@@ -208,6 +211,11 @@ li {
   padding: 1.5rem;
 }
 
+.sign-in-to {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
 .comment {
   padding: 5px;
 }
@@ -216,27 +224,27 @@ li {
   font-style: italic;
 }
 
-input[type=text] {
-  padding:10px;
-  margin:10px 10px; // add top and bottom margin
+input[type='text'] {
+  padding: 10px;
+  margin: 10px 10px; // add top and bottom margin
   box-sizing: border-box;
-  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
   border-radius: 10px;
-  border: 3px solid rgb(255,209,98);
+  border: 3px solid rgb(255, 209, 98);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
 }
 
 textarea {
-  width:100%;
+  width: 100%;
   resize: vertical;
-  padding:15px;
-  border-radius:15px;
-  box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-  height:150px;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+  height: 150px;
   align-self: center;
-  border: 3px solid rgb(255,209,98);
+  border: 3px solid rgb(255, 209, 98);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
@@ -246,7 +254,7 @@ textarea:focus {
   border: 3px solid rgb(211, 104, 37);
 }
 
-input[type=text]:focus {
+input[type='text']:focus {
   border: 3px solid rgb(211, 104, 37);
 }
 
@@ -269,7 +277,7 @@ input[type=text]:focus {
 }
 
 .category select {
-  background-color: rgb(255,209,98);
+  background-color: rgb(255, 209, 98);
   color: rgb(211, 104, 37);
   padding: 12px;
   width: 150px;
@@ -283,7 +291,7 @@ input[type=text]:focus {
 }
 
 .category:before {
-  content: "\f13a";
+  content: '\f13a';
   font-family: Poppins;
   position: absolute;
   top: 0;
@@ -306,4 +314,3 @@ input[type=text]:focus {
 .category select option {
   padding: 30px;
 }
-
