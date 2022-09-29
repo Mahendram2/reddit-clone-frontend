@@ -10,7 +10,7 @@ export default function Sidebar(props) {
           </button>
         </a>
       </div>
-      <div className='boards'>
+      <div className='boards-link'>
         <a href='./boards'>
           <button type='button' className='create-b'>
             Boards

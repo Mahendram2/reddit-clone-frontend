@@ -25,72 +25,72 @@ function Boards({
 
     return (
       <div className='boards'>
-        <h1>Boards</h1>
-        <div className='board'>
-          <h2>General</h2>
+        <h1 className='title'>Boards</h1>
+        <div className='board general'>
+          <h2>- General -</h2>
           {generalPosts.map((post) => (
-            <div className='post' key={post._id}>
+            <div className='post' key={post._id}> 
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link><br />
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
               <Buttons
                 updateCounter={updateCounter}
                 count={post.counter}
                 postId={post._id}
               />
-              <Link className='post-title' to={`/post/${post._id}`}>
-                {post.title}
-              </Link>
-              <span>{createdTime(post.createdAt)}</span>
-              <p>Created By: {post.createdBy}</p>
             </div>
           ))}
         </div>
-        <div className='board'>
-          <h2>Movies</h2>
+        <div className='board movies'>
+          <h2>- Movies -</h2>
           {moviePosts.map((post) => (
             <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link><br />
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
               <Buttons
                 updateCounter={updateCounter}
                 count={post.counter}
                 postId={post._id}
               />
-              <Link className='post-title' to={`/post/${post._id}`}>
-                {post.title}
-              </Link>
-              <span>{createdTime(post.createdAt)}</span>
-              <p>Created By: {post.createdBy}</p>
             </div>
           ))}
         </div>
-        <div className='board'>
-          <h2>Video Games</h2>
+        <div className='board vg'>
+          <h2>- Video Games -</h2>
           {gamesPosts.map((post) => (
             <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link><br />
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
               <Buttons
                 updateCounter={updateCounter}
                 count={post.counter}
                 postId={post._id}
               />
-              <Link className='post-title' to={`/post/${post._id}`}>
-                {post.title}
-              </Link>
-              <span>{createdTime(post.createdAt)}</span>
-              <p>Created By: {post.createdBy}</p>
             </div>
           ))}
         </div>
-        <div className='board'>
-          <h2>Sports</h2>
+        <div className='board sports'>
+          <h2>- Sports -</h2>
           {sportsPosts.map((post) => (
             <div className='post' key={post._id}>
+              <Link className='post-title' to={`/post/${post._id}`}>
+                {post.title}
+              </Link><br />
+              <span>{createdTime(post.createdAt)}</span>
+              <p>Created By: {post.createdBy}</p>
               <Buttons
                 updateCounter={updateCounter}
                 count={post.counter}
                 postId={post._id}
               />
-              <Link className='post-title' to={`/post/${post._id}`}>
-                {post.title}
-              </Link>
-              <span>{createdTime(post.createdAt)}</span>
-              <p>Created By: {post.createdBy}</p>
             </div>
           ))}
         </div>

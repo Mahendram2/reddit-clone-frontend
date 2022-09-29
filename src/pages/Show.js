@@ -49,15 +49,9 @@ function Show({
 
   const loaded = () => {
     return (
-      <div className='show-post'>
-        <Buttons
-          updateCounter={updateCounter}
-          count={post.counter}
-          postId={post._id}
-        />
-        <p>Made by: {post.createdBy}</p>
-        <span>{createdTime(post.createdAt)}</span>
-        <h1>{post.title}</h1>
+      <div className='show-post post'>
+        <h1>{post.title}</h1><br />
+        <p>{post.createdBy} - <span>{createdTime(post.createdAt)}</span></p><br />
         <p>{post.content}</p>
         <form onSubmit={handleSubmit}>
           <input
@@ -66,7 +60,7 @@ function Show({
             value={newComment.body}
             onChange={handleChange}
           />
-          <input type='submit' value='Comment' />
+          <input type='submit' value='Comment' className='create-b'/>
         </form>
         {post.replies.map((comment) => (
           <Comment
@@ -76,7 +70,18 @@ function Show({
             user={user}
           />
         ))}
-        <button onClick={handleDelete}>Delete Post</button>
+        <ul>
+          <li>
+            <Buttons
+              updateCounter={updateCounter}
+              count={post.counter}
+              postId={post._id}
+            />
+          </li>
+          <li>
+            <button onClick={handleDelete} className='create-b'>Delete Post</button>
+          </li>
+        </ul>
       </div>
     );
   };
