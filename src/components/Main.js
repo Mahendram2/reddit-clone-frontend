@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
 import Show from '../pages/Show';
@@ -12,8 +12,11 @@ import Boards from '../pages/Boards';
 
 function Main({ user }) {
   const [feed, setFeed] = useState(null);
+  const getDataRef = useRef(null);
 
-  const API_URL = 'https://redudant-api.herokuapp.com/api/post/';
+  const API_URL = 'https://redundant-backup-api.herokuapp.com/api/post/';
+  // const API_URL = 'https://redudant-api.herokuapp.com/api/post/';
+  // const API_URL = 'http://localhost:4000/api/post';
 
   const getData = async () => {
     try {
@@ -127,7 +130,11 @@ function Main({ user }) {
   }
 
   useEffect(() => {
-    getData();
+    getDataRef.current = getData;
+  }, []);
+
+  useEffect(() => {
+    getDataRef.current();
   }, []);
 
   return (
