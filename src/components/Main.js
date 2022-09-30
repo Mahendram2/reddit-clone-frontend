@@ -1,14 +1,15 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+
 import Feed from '../pages/Feed';
 import NewPost from '../pages/NewPost';
 import Show from '../pages/Show';
 import Boards from '../pages/Boards';
 
 // HERE FOR IF WE WANT TO HIDE DATA
-function PrivatePageContainer({ children, user }) {
-  return user ? children : <Navigate to='/' />;
-}
+// function PrivatePageContainer({ children, user }) {
+//   return user ? children : <Navigate to='/' />;
+// }
 
 function Main({ user }) {
   const [feed, setFeed] = useState(null);
