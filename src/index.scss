@@ -148,6 +148,21 @@ a:hover {
   left: 5px;
 }
 
+.ad-boi {
+  margin-top: 6px;
+  border: 2px solid whitesmoke;
+}
+
+.ad-photo {
+  max-height: 100%;
+  max-width: 100%;
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid whitesmoke;
+  padding: 5px;
+}
+
 .sb-container {
   margin-top: 10%;
   display: inline-block;
