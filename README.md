@@ -19,7 +19,7 @@ A Reddit Clone
 
 ## Getting Started
 
-- [Click here](https://redundant.netlify.app/1) to see the live website
+- [Click here](https://redundant.netlify.app) to see the live website
 
 ## Future Enhancements
 
