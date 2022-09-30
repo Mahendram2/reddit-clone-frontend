@@ -23,4 +23,6 @@ A Reddit Clone
 
 ## Future Enhancements
 
-- everything!!!
+- host images
+- let users create usernames
+- let users create different categories to search by
